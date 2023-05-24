@@ -1,0 +1,17 @@
+sail composer require laravel/jetstream
+alias sail="bash ./vendor/bin/sail"
+
+
+sail  php artisan jetstream:install livewire 
+sail npm install
+sail npm run build
+sail php artisan migrate
+
+sail php artisan vendor:publish --tag=jetstream-views
+
+
+
+sail composer require filament/filament:"^2.0"
+sail php artisan make:filament-user
+sail php artisan vendor:publish --tag=filament-config
+sail php artisan vendor:publish --tag=filament-translations
